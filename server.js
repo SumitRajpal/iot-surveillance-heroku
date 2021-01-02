@@ -7,9 +7,10 @@ const WS_PORT  = 8888;
 const HTTP_PORT =  process.env.PORT || 3000;
 
 const wsServer = new WebSocket.Server({port: WS_PORT}, ()=> console.log(`WS Server is listening at ${WS_PORT}`));
+
 let connectedClients = [];
 wsServer.on('connection', (ws, req)=>{
-    console.log('Connected',ws);
+    console.log('Connected');
     connectedClients.push(ws);
 
     ws.on('message', data => {
