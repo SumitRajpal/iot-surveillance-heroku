@@ -2,14 +2,14 @@ const path = require('path');
 const express = require('express');
 const WebSocket = require('ws');
 const app = express();
-
 const WS_PORT  = 30895;
 const HTTP_PORT =  process.env.PORT || 3000;
 console.log(process.env.PORT)
 const wsServer = new WebSocket.Server({port: WS_PORT}, ()=> console.log(`WS Server is listening at ${WS_PORT}`));
 let connectedClients = [];
+console.log(wsServer);
 wsServer.on('connection', (ws, req)=>{
-    console.log('Connected');
+    console.log('Connected',req.connection.remoteAddress);
     connectedClients.push(ws);
 
     ws.on('message', data => {
