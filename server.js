@@ -3,11 +3,12 @@ const express = require('express');
 const WebSocket = require('ws');
 const app = express();
 
-const WS_PORT  = 8888;
-const HTTP_PORT =  process.env.PORT || 80;
+const WS_PORT  = process.env.PORT || 80;
+const HTTP_PORT =  process.env.PORT || 3000;
 
 const wsServer = new WebSocket.Server({port: WS_PORT}, ()=> console.log(`WS Server is listening at ${WS_PORT}`));
 let connectedClients = [];
+console.log(WS_PORT,HTTP_PORT)
 wsServer.on('connection', (ws, req)=>{
     console.log('Connected');
     connectedClients.push(ws);
