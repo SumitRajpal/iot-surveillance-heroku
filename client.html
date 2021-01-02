@@ -7,7 +7,7 @@
         <script>
             const img = document.querySelector('img');
             const WS_URL = location.origin.replace(/^https/, 'ws').concat(':8888');
-            console.log(WS_URL,process.env.PORT);
+            console.log(WS_URL);
             const ws = new WebSocket(WS_URL);
             let urlObject;
             ws.onopen = () => console.log(`Connected to ${WS_URL}`);
