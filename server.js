@@ -22,7 +22,7 @@ for (const name of Object.keys(nets)) {
         }
     }
 }
-console.log(results)
+console.log(results,wsServer)
 wsServer.on('connection', (ws, req)=>{
     console.log('Connected',req.connection.remoteAddress);
     connectedClients.push(ws);
