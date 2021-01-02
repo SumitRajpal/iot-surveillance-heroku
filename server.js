@@ -8,7 +8,6 @@ const HTTP_PORT =  process.env.PORT || 3000;
 console.log(process.env.PORT)
 const wsServer = new WebSocket.Server({port: WS_PORT}, ()=> console.log(`WS Server is listening at ${WS_PORT}`));
 let connectedClients = [];
-console.log(wsServer);
 const nets = networkInterfaces();
 const results = Object.create(null); // Or just '{}', an empty object
 
@@ -23,6 +22,7 @@ for (const name of Object.keys(nets)) {
         }
     }
 }
+console.log(results)
 wsServer.on('connection', (ws, req)=>{
     console.log('Connected',req.connection.remoteAddress);
     connectedClients.push(ws);
