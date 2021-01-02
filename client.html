@@ -6,7 +6,7 @@
         <img src="">
         <script>
             const img = document.querySelector('img');
-            const WS_URL = 'http://watchdoghome.herokuapp.com:80';
+            const WS_URL = location.origin.replace(/^http/, 'ws');
             const ws = new WebSocket(WS_URL);
             let urlObject;
             ws.onopen = () => console.log(`Connected to ${WS_URL}`);
