@@ -6,7 +6,7 @@
         <img src="">
         <script>
             const img = document.querySelector('img');
-            const WS_URL = location.origin.replace(/^http/, 'ws').concat(':30895');
+            const WS_URL = location.origin.replace(/^http/, 'ws').concat(':80');
             console.log(WS_URL)
             const ws = new WebSocket(WS_URL);
             let urlObject;
